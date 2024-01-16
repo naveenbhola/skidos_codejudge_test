@@ -1,0 +1,21 @@
+tasks:
+  - before: >
+      wget -qOdatabase-setup.sh https://codejudge-starter-repo-artifacts.s3.ap-south-1.amazonaws.com/gitpod/backend/node/gitpod-setup.sh &&
+      chmod 0755 database-setup.sh &&
+      bash database-setup.sh 17.0.0
+    init: npm install
+    command: npm start
+
+ports:
+  - port: 8080
+    name: "Backend Server"
+    onOpen: open-browser
+    visibility: public
+  - port: 3306
+    name: "MySQL Server"
+    onOpen: ignore
+    visibility: public
+  - port: 27017
+    name: "MongoDB Server"
+    onOpen: ignore
+    visibility: public
